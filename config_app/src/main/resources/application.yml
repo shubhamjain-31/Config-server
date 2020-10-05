@@ -1,0 +1,27 @@
+
+server:
+  port: 8191
+management:
+  endpoint:
+    health:
+      show-details: always
+
+endpoints.health.sensitive: false
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/shubhamjain-31/Config-store.git
+          search-paths:
+           - '*service'
+    bus:
+      enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management.endpoints.web.exposure.include: "*"
